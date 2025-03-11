@@ -31,14 +31,13 @@ def main():
 
 
 
-def update_objects(objects):
+def update_objects(objects: list):
   for obj in objects:
     obj.update()
 
-def draw_objects(objects, screen: pygame.Surface):
+def draw_objects(objects: list, screen: pygame.Surface):
   for obj in objects:
     obj.draw(screen)
-
 
 if __name__ == "__main__":
   main()
