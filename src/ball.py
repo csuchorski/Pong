@@ -13,7 +13,14 @@ class Ball:
 
   def handle_collision_paddle(self, paddle: Paddle):
     if self.rect.colliderect(paddle):
-      self.speed_x *= -1
+      self.speed_x *= -1.05
+      self.speed_y += (self.rect.centery - paddle.rect.centery) / (paddle.rect.height // 2) * 5
+
+  def check_loss(self) -> bool:
+    #True means the game is lost
+    if self.rect.left <= 0 or self.rect.right >= 800:
+      return True
+    return False
 
   def update(self):
     self.rect.x += self.speed_x
@@ -21,9 +28,6 @@ class Ball:
 
     if self.rect.top <= 0 or self.rect.bottom >= 600:
       self.speed_y *= -1
-    if self.rect.left <= 0 or self.rect.right >= 800:
-      self.speed_x *= -1
-      print("game lost")
 
   def draw(self, screen: pygame.Surface):
     pygame.draw.ellipse(screen, self.color, self.rect)

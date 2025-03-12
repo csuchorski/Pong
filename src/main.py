@@ -35,11 +35,15 @@ def main():
     ball.handle_collision_paddle(left_paddle)
     ball.handle_collision_paddle(right_paddle)
 
+    if ball.check_loss():
+      running = False
+
     update_objects(objects)
     draw_objects(objects, screen)
 
     pygame.display.flip()
 
+  display_end_screen()
 
 
 def update_objects(objects: list):
@@ -49,6 +53,9 @@ def update_objects(objects: list):
 def draw_objects(objects: list, screen: pygame.Surface):
   for obj in objects:
     obj.draw(screen)
+
+def display_end_screen():
+  pass
 
 if __name__ == "__main__":
   main()
