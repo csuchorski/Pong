@@ -1,5 +1,7 @@
 import pygame
 
+from paddle import Paddle
+
 
 class Ball:
   def __init__(self, pos_x: int, pos_y:int , speed_x: int, speed_y: int, radius: int, color: tuple[int,int,int]):
@@ -9,6 +11,10 @@ class Ball:
     self.radius = radius
     self.color = color
 
+  def handle_collision_paddle(self, paddle: Paddle):
+    if self.rect.colliderect(paddle):
+      self.speed_x *= -1
+
   def update(self):
     self.rect.x += self.speed_x
     self.rect.y += self.speed_y
@@ -17,6 +23,7 @@ class Ball:
       self.speed_y *= -1
     if self.rect.left <= 0 or self.rect.right >= 800:
       self.speed_x *= -1
+      print("game lost")
 
   def draw(self, screen: pygame.Surface):
     pygame.draw.ellipse(screen, self.color, self.rect)
