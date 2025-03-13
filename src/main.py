@@ -1,6 +1,8 @@
 import pygame
 from ball import Ball
-from paddle import Paddle
+from human_paddle import HumanPaddle
+from AI_paddle import AIPaddle
+
 
 def main():
   pygame.init()
@@ -15,9 +17,9 @@ def main():
 
   clock = pygame.time.Clock()
   ball = Ball(screen_w//2, screen_h//2, 3, 5, 10, WHITE)
-  left_paddle = Paddle(10, 50, 0, screen_h//2, 5, WHITE)
-  right_paddle = Paddle(10, 50, screen_w-10, screen_h//2, 5, WHITE)
-  objects = [ball, left_paddle, right_paddle]
+  left_paddle = HumanPaddle(10, 50, 0, screen_h//2, 5, WHITE)
+  AI_paddle = AIPaddle(10, 50, screen_w-10, screen_h//2, 5, WHITE, 2)
+  objects = [ball, left_paddle, AI_paddle]
 
   running = True
   while running:
@@ -30,10 +32,10 @@ def main():
 
     keys = pygame.key.get_pressed()
     left_paddle.handle_controls(keys, pygame.K_w, pygame.K_s)
-    right_paddle.handle_controls(keys, pygame.K_UP, pygame.K_DOWN)
+    AI_paddle.move(ball)
 
     ball.handle_collision_paddle(left_paddle)
-    ball.handle_collision_paddle(right_paddle)
+    ball.handle_collision_paddle(AI_paddle)
 
     if ball.check_loss():
       running = False

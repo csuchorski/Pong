@@ -14,7 +14,7 @@ class Ball:
   def handle_collision_paddle(self, paddle: Paddle):
     if self.rect.colliderect(paddle):
       self.speed_x *= -1.05
-      self.speed_y += (self.rect.centery - paddle.rect.centery) / (paddle.rect.height // 2) * 5
+      self.speed_y += (self.rect.centery - paddle.rect.centery) / (paddle.rect.height // 2) * 2
 
   def check_loss(self) -> bool:
     #True means the game is lost

@@ -7,14 +7,6 @@ class Paddle:
     self.color = color
     self.direction = 0
 
-  def handle_controls(self, keys_pressed: pygame.key.ScancodeWrapper, key_up: int, key_down: int):
-    if keys_pressed[key_up]:
-      self.direction = -1
-    elif keys_pressed[key_down]:
-      self.direction = 1
-    else:
-      self.direction = 0
-
   def update(self):
     self.rect.y += self.speed * self.direction
 
