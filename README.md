@@ -30,7 +30,7 @@ You can also choose from 3 difficulty levels for the AI.
 
    Activate it with
 
-   - (Linux/MacOS)
+   - Linux/MacOS
 
    ```bash
    source venv/bin/activate
@@ -39,7 +39,7 @@ You can also choose from 3 difficulty levels for the AI.
    - Windows
 
    ```bash
-   .\\venv\\Scripts\\activate
+   .\venv\Scripts\activate
    ```
 
 3. Install the required dependencies from `requirements.txt`:
