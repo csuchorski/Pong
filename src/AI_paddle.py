@@ -42,9 +42,6 @@ class AIPaddle(Paddle):
       self.direction = 0
 
   def __predict_ball_target(self, ball: Ball) -> int:
-    #while x is smaller than paddle
-    #simulate y + yspeed
-    #bounce on walls
     sim_pos_x = ball.rect.x
     sim_speed_x = ball.speed_x
     sim_speed_y = ball.speed_y

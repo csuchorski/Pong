@@ -4,6 +4,10 @@ from button import Button
 from human_paddle import HumanPaddle
 from AI_paddle import AIPaddle
 
+SCREEN_W, SCREEN_H = 800, 600
+BLACK = (0,0,0)
+WHITE = (255,255,255)
+
 def main():
   pygame.display.set_caption('Pong Game') 
   screen.fill(BLACK)  
@@ -81,10 +85,9 @@ def show_main_menu():
 
 if __name__ == "__main__":
   pygame.init()
-  SCREEN_W, SCREEN_H = 800, 600
+  
   screen = pygame.display.set_mode((SCREEN_W, SCREEN_H))
-  BLACK = (0,0,0)
-  WHITE = (255,255,255)
+
 
   button_start_PvP = Button("Player vs Player", pygame.font.Font(None, 20), SCREEN_W//2, SCREEN_H//2-200, 200, 50, start_game, 0)
   button_start_PvAI = Button("Player vs AI", pygame.font.Font(None, 20), SCREEN_W//2, SCREEN_H//2-100, 200, 50, start_game, 1)

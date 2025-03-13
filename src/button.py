@@ -20,5 +20,4 @@ class Button():
   def check_click(self, event: pygame.event.Event):
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             if self.rect.collidepoint(event.pos) and self.action:
-                print("clicked ", self.mode)
                 self.action(self.mode)
