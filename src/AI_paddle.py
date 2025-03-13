@@ -7,7 +7,7 @@ class AIPaddle(Paddle):
     super().__init__(width,height,pos_x,pos_y,speed,color)
     self.difficulty = difficulty
 
-  def move(self, ball: Ball):
+  def handle_movement(self, _, ball: Ball):
     match self.difficulty:
       case 0:
         self.__move_diff_easy(ball)
